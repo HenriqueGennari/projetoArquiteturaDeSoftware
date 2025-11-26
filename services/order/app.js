@@ -20,12 +20,14 @@ async function processMessage(msg) {
             await (await RabbitMQService.getInstance()).send('contact', { 
                 "clientFullName": orderData.name,
                 "to": orderData.email,
-                "subject": "Pedido Aprovado",
+                // "subject": "Pedido Aprovado", 
+                "subject": "Pedido em análise",
                 "text": `${orderData.name}, seu pedido de disco de vinil acaba de ser aprovado, e esta sendo preparado para entrega!`,
             })
 
-            await (await RabbitMQService.getInstance()).send('shipping', orderData)
-            console.log(`✔ ORDER APPROVED`)
+            // await (await RabbitMQService.getInstance()).send('shipping', orderData) // preciso mudar aqui 
+            await (await RabbitMQService.getInstance()).send('fraud-check', orderData) // preciso mudar aqui 
+            console.log(`✔ ORDER VALIDATED -> SENT TO FRAUD CHECK`)
         } else {
             await (await RabbitMQService.getInstance()).send('contact', { 
                 "clientFullName": orderData.name,
