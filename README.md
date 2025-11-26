@@ -1,3 +1,6 @@
+#REPOSITÓRIO CRIADO PARA A MATÉRIA DE ARQUITETURA DE SOFTWARE DO PROFESSOR MICHEL DO UNICEUB. LER CRÉDITOS
+
+
 # Pub-Sub-Store: Exemplo Prático de Arquitetura Publish/Subscribe
  
 Este repositório contém um exemplo simples de uma loja virtual construída usando uma **arquitetura publish/subscribe**.
